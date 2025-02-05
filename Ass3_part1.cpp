@@ -9,7 +9,7 @@ class Node{
     bool rightThread;
 
 public:
-    //parameterized constructor
+    
     Node(int i){
         this -> data = i;
         this -> left = nullptr;
@@ -24,12 +24,12 @@ class TBST{
     Node *root;
 
 public:
-    //parameterized constructor
+
     TBST(int i){
         this -> root = new Node(i);
     }
     
-    //inserts a node as per insertion in BST
+  
     void insert(int i){
         Node *current = this -> root;
         Node *previous = nullptr;
@@ -174,7 +174,7 @@ public:
 
 	    if( current -> left == nullptr  && (current -> rightThread) ) {
 		    cout << "Leaf Node deletion" << "\n" ; 
-		    // Leaf node deletion
+
 		    if( previous -> left == current ) {
 		    	cout << "Left child delete" << "\n" ; 
 		    	previous -> left = nullptr ;
@@ -187,7 +187,7 @@ public:
 	    }
 	    else if( current -> left != nullptr && current -> right != nullptr && !(current -> rightThread) ) {
 		    cout << "Two children deletion" << "\n" ; 
-		    // current has two children
+	
 		    Node* minInRightTree = current -> right ; 
 		    Node* newParent = current ; 
 		    while( minInRightTree -> left != nullptr ) {
