@@ -1,10 +1,4 @@
-/*
-Source : Advait Naik (GitHub - @Advait0801)
 
-Create an inordered threaded binary search tree. Perform inorder, preorder
-traversals without recursion and deletion of a node. Analyze time and
-space complexity of the algorithm.
-*/
 
 #include <iostream>
 using namespace std;
@@ -70,12 +64,12 @@ public:
         }
     }
 
-    //inorder display of the existing tree
+   
     void inorderTraversal(){
         cout<<"The inorder traversal of the existing tree is...."<<endl;
         Node *current = this -> root;
 
-        //get the smallest node in tree i.e. leftmost
+   
         while(current -> left != nullptr){
             current = current -> left;
         }
@@ -83,23 +77,22 @@ public:
         while(true) {
             cout<<current -> data<<" ";
 
-            //leaf node
             if(current -> left == nullptr && current -> right == nullptr){
                 cout<<endl;
                 return;
             }
 
-            //inorder successor present
+        
             if(current -> rightThread){
                 current = current -> right;
             }
 
-            //right child is not present
+            
             else if(current -> right == nullptr){
                 return;
             }
 
-            //smallest node in right subtree
+           
             else{
                 current = current -> right;
                 while(current -> left != nullptr){
@@ -109,19 +102,19 @@ public:
         }
     }
 
-    //preorder display of the existing tree
+
     void preorderTraversal(){
         cout<<"The preorder traversal of the existing tree is...."<<endl;
         Node *current = this -> root;
         while(true){
             cout<<current -> data<<" ";
 
-            //left child present
+       
             if(current -> left){
                 current = current -> left;
             }
 
-            //right child or inorder successor present
+           
             else if(current -> right){
                 while (current->rightThread)
                 {
@@ -137,7 +130,7 @@ public:
                 }
             }
 
-            //max element node reached and printed it
+       
             else{
                 cout<<endl;
                 return;
@@ -153,14 +146,12 @@ public:
 		    	break;
 		    }
 		    if (current -> data > key) {
-			    // Go left
+			
 		    	previous = current;
 			    current = current -> left;
 		    }
 		    else if( current -> data < key ) {
-			    // Go right if rightThread is False
-		    	// We wish to travel down the tree,
-		    	// if we encounter a thread, break the loop (as we've encountered a leaf node)
+			 
 			    if (!(current -> rightThread)) {
 				    previous = current;
 				    current = current->right;
